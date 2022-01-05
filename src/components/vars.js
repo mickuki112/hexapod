@@ -82,10 +82,10 @@ const GAIT_RANGE_PARAMS = {
     rx: { minVal: -15, maxVal: 15, stepVal: 2.5, defaultVal: 0 },
     ry: { minVal: -15, maxVal: 15, stepVal: 2.5, defaultVal: 0 },
     legStance: { minVal: -50, maxVal: 50, stepVal: 1, defaultVal: 0 },
-    hipStance: { minVal: 0, maxVal: 40, stepVal: 1, defaultVal: 20 },
+    hipStance: { minVal: 0, maxVal: 40, stepVal: 1, defaultVal: 30 },
     hipSwing: { minVal: 10, maxVal: 40, stepVal: 1, defaultVal: 25 },
     liftSwing: { minVal: 10, maxVal: 70, stepVal: 1, defaultVal: 40 },
-    stepCount: { minVal: 3, maxVal: 7, stepVal: 1, defaultVal: 5 },
+    stepCount: { minVal: 3, maxVal: 70, stepVal: 1, defaultVal: 5 },
 }
 /*************
  * ICONS

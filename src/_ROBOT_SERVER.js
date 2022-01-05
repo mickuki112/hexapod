@@ -6,8 +6,10 @@ const app = require("express")()
 const http = require("http").Server(app)
 
 const io = require("socket.io")(http, {
+    ransports: ['websocket', 'polling', 'flashsocket'],
     cors: {
-        origin: SOCKET_CLIENT_URLS,
+        credentials: true,
+        origin: "*",
     },
 })
 
@@ -49,11 +51,12 @@ board.on("ready", () => {
     // COMMAND SERVOS
     // *************************
     const setServo = (pose, leg, angle) => {
-        const newPose = pose[leg][angle]
+        const newPose = angle==="gamma" || angle==="beta" ? 180-pose[leg][angle] :  pose[leg][angle]
         hexapodServos[leg][angle].to(newPose)
     }
 
     const setHexapodPose = pose => {
+
         for (let leg of LEG_POSITIONS) {
             setServo(pose, leg, "alpha")
             setServo(pose, leg, "beta")
@@ -72,7 +75,6 @@ board.on("ready", () => {
         })
 
         socket.on(CHANNEL_NAME, msg => {
-            console.log("lag:", new Date() - msg.time)
             if (msg.pose) {
                 setHexapodPose(msg.pose)
             }

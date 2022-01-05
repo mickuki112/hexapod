@@ -11,6 +11,7 @@ const App = () => {
     const [pageName, setPageName] = useState(SECTION_NAMES.landingPage)
     const [hexapod, setHexapod] = useState(() => updateHexapod("default"))
     const [revision, setRevision] = useState(0)
+    const [animation, setAnimation] = useState(true)
     const inHexapodPage = pageName !== SECTION_NAMES.landingPage
     const [sendPose, deltaDate] = useSendPose()
 
@@ -44,6 +45,8 @@ const App = () => {
         <Router>
             <Nav />
             <div id="main">
+                <button onClick={()=>setAnimation(!animation)}>onn/off</button>
+
                 <div id="sidebar">
                     <div hidden={!inHexapodPage}>
                         <DimensionsWidget
@@ -56,7 +59,7 @@ const App = () => {
                     {!inHexapodPage ? <NavDetailed /> : null}
                 </div>
                 <div id="plot" className="border" hidden={!inHexapodPage}>
-                    <HexapodPlot revision={revision} hexapod={hexapod} />
+                    {animation && <HexapodPlot revision={revision} hexapod={hexapod} />}
                 </div>
             </div>
             {inHexapodPage ? <NavDetailed /> : null}
