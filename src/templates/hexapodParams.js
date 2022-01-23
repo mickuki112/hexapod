@@ -20,12 +20,12 @@ const DEFAULT_LEG_DIMENSIONS = {
 }
 
 const DEFAULT_POSE = {
-    leftFront: { alpha: 0, beta: 0, gamma: 0 },
-    rightFront: { alpha: 0, beta: 0, gamma: 0 },
-    leftMiddle: { alpha: 0, beta: 0, gamma: 0 },
-    rightMiddle: { alpha: 0, beta: 0, gamma: 0 },
-    leftBack: { alpha: 0, beta: 0, gamma: 0 },
-    rightBack: { alpha: 0, beta: 0, gamma: 0 },
+    leftFront: { alpha: 0, beta: -6, gamma: -6 },
+    rightFront: { alpha: 0, beta: -2, gamma: -14 },
+    leftMiddle: { alpha: 0, beta: 4, gamma: -6 },
+    rightMiddle: { alpha: 0, beta: 0, gamma: -6 },
+    leftBack: { alpha: 0, beta: -3, gamma: -6 },
+    rightBack: { alpha: 0, beta: -9, gamma: -6 },
 }
 
 const DEFAULT_PATTERN_PARAMS = { alpha: 0, beta: 0, gamma: 0 }
